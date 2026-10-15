@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#050611">
+<meta name="description" content="Explore handwriting project opportunities, review requirements, and verify terms before applying.">
+<title>WriteNova — Writing Opportunities</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#050611;--panel:rgba(15,18,42,.72);--line:rgba(157,139,255,.22);--text:#f7f7ff;--muted:#a8abc8;--violet:#9b5cff;--pink:#fa48cf;--cyan:#29d8ff;--mint:#20e6c2;--radius:24px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.65;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button,a{-webkit-tap-highlight-color:transparent}
+::selection{background:#a855f7;color:#fff}
+.ambient{position:fixed;inset:0;z-index:-3;overflow:hidden;pointer-events:none;background:radial-gradient(ellipse at 15% 8%,#5020a52c,transparent 34%),radial-gradient(ellipse at 90% 38%,#006f9b26,transparent 35%),#050611}
+.ambient:before,.ambient:after{content:"";position:absolute;width:55vw;height:55vw;min-width:380px;min-height:380px;border-radius:50%;filter:blur(95px);opacity:.18;animation:drift 18s ease-in-out infinite alternate}
+.ambient:before{background:conic-gradient(from 40deg,#8c3bff,#00d9ff,#ff35c8,#8c3bff);top:-22%;left:-20%}
+.ambient:after{background:conic-gradient(#ff35c8,#2e5bff,#00e5cc,#ff35c8);right:-25%;top:36%;animation-delay:-8s}
+.noise{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.11;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.2'/%3E%3C/svg%3E")}
+.container{width:min(1160px,calc(100% - 44px));margin-inline:auto}
+.nav{position:sticky;top:0;z-index:50;background:rgba(5,6,17,.76);backdrop-filter:blur(22px);border-bottom:1px solid #ffffff10}
+.nav-inner{height:78px;display:flex;align-items:center;justify-content:space-between;gap:22px}
+.brand{display:inline-flex;align-items:center;gap:10px;font-weight:900;font-size:21px;letter-spacing:-.8px}
+.brand-mark{display:grid;place-items:center;width:34px;height:34px;border-radius:11px;background:linear-gradient(135deg,var(--violet),var(--pink),var(--cyan));box-shadow:0 0 28px #8b5cf655}
+.brand span:last-child{background:linear-gradient(90deg,#fff,#c4b5fd 45%,#67e8f9);background-clip:text;color:transparent}
+.nav-links{display:flex;gap:27px;align-items:center;color:#c4c6df;font-size:12px}
+.nav-links a{transition:color .2s}.nav-links a:hover{color:#fff}
+.btn{display:inline-flex;justify-content:center;align-items:center;gap:10px;min-height:48px;padding:13px 20px;border:1px solid #ffffff20;border-radius:14px;font-weight:800;font-size:13px;transition:transform .25s,box-shadow .25s,border-color .25s;cursor:pointer}
+.btn:hover{transform:translateY(-3px);box-shadow:0 12px 35px #8b5cf644}
+.btn-primary{border:0;background:linear-gradient(105deg,#7c3aed,#c026d3 52%,#2563eb);background-size:200% 200%;animation:gradient 7s ease infinite;box-shadow:0 8px 30px #8b5cf644}
+.btn-telegram{background:linear-gradient(105deg,#087bb9,#168ee6 55%,#7c3aed);border-color:#5bd9ff55}
+.btn-quiet{background:rgba(255,255,255,.035)}
+.hero{position:relative;display:grid;grid-template-columns:1.04fr .96fr;align-items:center;gap:40px;min-height:650px;padding-block:75px 60px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:7px 12px;border:1px solid #b16bff50;background:#8b5cf619;border-radius:999px;color:#e2ceff;font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase}
+.live-dot{width:7px;height:7px;background:#4ade80;border-radius:50%;box-shadow:0 0 12px #4ade80;animation:pulse 2s infinite}
+h1{font-size:clamp(43px,6vw,76px);line-height:1.03;letter-spacing:-4px;font-weight:900;margin-top:23px}
+.gradient-text{background:linear-gradient(100deg,#c4b5fd 5%,#f0abfc 44%,#67e8f9 90%);background-size:200% auto;background-clip:text;color:transparent;animation:textShine 8s linear infinite}
+.hero-copy{color:var(--muted);font-size:15px;max-width:550px;margin-top:23px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.check-row{display:flex;flex-wrap:wrap;gap:18px;margin-top:27px;color:#c4c7e1;font-size:11px}
+.check-row span{display:flex;align-items:center;gap:7px}.check-row b{color:var(--cyan);font-size:15px}
+.hero-art{position:relative;min-height:450px;display:grid;place-items:center;isolation:isolate}
+.art-glow{position:absolute;width:320px;height:320px;border-radius:50%;background:conic-gradient(from 80deg,var(--violet),var(--cyan),var(--pink),var(--violet));filter:blur(75px);opacity:.32;animation:spin 18s linear infinite}
+.ring{position:absolute;width:350px;height:350px;border:1px solid #a855f750;border-radius:50%;box-shadow:0 0 55px #7c3aed22,inset 0 0 50px #7c3aed13;animation:spin 25s linear infinite}
+.ring:before,.ring:after{content:"";position:absolute;width:10px;height:10px;border-radius:50%;background:var(--cyan);box-shadow:0 0 18px var(--cyan)}
+.ring:before{top:37px;left:44px}.ring:after{right:15px;bottom:95px;background:var(--pink);box-shadow:0 0 18px var(--pink)}
+.paper-stack{position:relative;width:min(340px,83%);padding:28px;border-radius:24px;background:linear-gradient(145deg,rgba(255,255,255,.17),rgba(255,255,255,.045));border:1px solid #ffffff30;backdrop-filter:blur(18px);box-shadow:0 30px 100px #0008,0 0 45px #a855f72a;transform:rotate(-5deg);animation:levitate 6s ease-in-out infinite}
+.paper-stack:before{content:"";position:absolute;inset:12px -12px -12px 12px;border-radius:24px;border:1px solid #9a77ff55;background:#11142c;z-index:-1;transform:rotate(7deg)}
+.paper-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}
+.paper-icon{width:46px;height:46px;border-radius:15px;display:grid;place-items:center;font-size:22px;background:linear-gradient(135deg,#7c3aed,#ec4899)}
+.tiny{font-size:10px;color:#b8bad7}
+.paper-stack h3{font-size:25px;line-height:1.2;margin-top:7px}
+.paper-lines{margin-top:23px;display:grid;gap:13px}
+.paper-lines i{height:1px;background:#c7c8f62c;display:block}
+.handwriting{font-family:Georgia,serif;font-style:italic;color:#d8d2ff;font-size:24px;line-height:1.55;transform:rotate(-2deg);padding:5px 0}
+.float-chip{position:absolute;z-index:3;padding:12px 15px;border:1px solid #ffffff20;border-radius:14px;background:rgba(10,13,34,.86);backdrop-filter:blur(16px);box-shadow:0 12px 35px #0005;font-size:11px;font-weight:800;animation:levitate 5s ease-in-out infinite}
+.chip-a{top:50px;right:0}.chip-b{bottom:48px;left:0;animation-delay:-2.3s}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid #9b7bff45;background:linear-gradient(115deg,#17103a99,#09172cbb);border-radius:20px;overflow:hidden;box-shadow:0 20px 70px #0003;margin-bottom:75px}
+.stat{padding:23px 15px;text-align:center;position:relative}.stat+.stat:before{content:"";position:absolute;left:0;top:22%;height:56%;width:1px;background:#ffffff1a}
+.stat-icon{font-size:22px;color:var(--cyan)}.stat strong{display:block;font-size:21px;letter-spacing:-.5px}.stat span{font-size:11px;color:var(--muted)}
+.section{padding:65px 0 95px}.section-head{text-align:center;max-width:680px;margin:0 auto 38px}.section-head .eyebrow{margin-bottom:13px}.section-head h2{font-size:clamp(30px,4vw,46px);line-height:1.14;letter-spacing:-1.8px}.section-head p{margin-top:13px;color:var(--muted);font-size:13px}
+.project-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.project-card{--accent:var(--violet);position:relative;overflow:hidden;padding:25px;border-radius:22px;border:1px solid color-mix(in srgb,var(--accent),transparent 45%);background:linear-gradient(145deg,color-mix(in srgb,var(--accent),transparent 91%),rgba(10,13,32,.82));transition:transform .3s,border-color .3s,box-shadow .3s}
+.project-card:before{content:"";position:absolute;width:190px;height:190px;right:-110px;top:-125px;background:var(--accent);filter:blur(75px);opacity:.34;transition:opacity .3s}
+.project-card:hover{transform:translateY(-6px);box-shadow:0 20px 55px #0005;border-color:var(--accent)}.project-card:hover:before{opacity:.6}
+.card-top{position:relative;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.project-id,.level{font-size:10px;font-weight:800;border-radius:999px;padding:6px 9px;background:color-mix(in srgb,var(--accent),transparent 84%);color:#f0e8ff;border:1px solid color-mix(in srgb,var(--accent),transparent 65%)}
+.project-main{display:flex;align-items:center;gap:15px;margin-top:22px;position:relative}
+.project-icon{width:54px;height:54px;flex:none;display:grid;place-items:center;font-size:25px;border-radius:16px;background:linear-gradient(135deg,color-mix(in srgb,var(--accent),#fff 10%),color-mix(in srgb,var(--accent),#000 20%));box-shadow:0 8px 28px color-mix(in srgb,var(--accent),transparent 70%)}
+.project-card h3{font-size:16px;line-height:1.3}.reward{font-size:23px;font-weight:900;letter-spacing:-.7px;margin-top:4px}.project-card p{font-size:11px;color:var(--muted);margin-top:5px}
+.project-meta{display:flex;flex-wrap:wrap;gap:9px;margin:20px 0 15px}.project-meta span{padding:7px 9px;border-radius:9px;border:1px solid #ffffff12;background:#ffffff07;color:#dedff1;font-size:10px}
+.card-btn{display:flex;justify-content:center;align-items:center;gap:8px;min-height:42px;border-radius:12px;background:linear-gradient(100deg,color-mix(in srgb,var(--accent),#fff 4%),color-mix(in srgb,var(--accent),#000 5%));font-size:11px;font-weight:800;transition:filter .2s,transform .2s}.card-btn:hover{filter:brightness(1.15);transform:translateY(-2px)}
+.note{text-align:center;color:#8589a8;font-size:10px;margin-top:20px}
+.steps-layout{display:grid;grid-template-columns:.8fr 1.2fr;gap:50px;align-items:center}
+.steps-art{position:relative;min-height:350px;display:grid;place-items:center}
+.steps-orb{width:230px;height:230px;border-radius:50%;background:linear-gradient(135deg,#7c3aed,#ec4899,#06b6d4);filter:blur(65px);opacity:.3;position:absolute}
+.phone{position:relative;width:215px;padding:15px;border-radius:30px;background:linear-gradient(145deg,#2b2d50,#070914);border:1px solid #ffffff35;box-shadow:0 30px 70px #0008;transform:rotate(-8deg);animation:levitate 6s ease-in-out infinite}
+.phone-screen{min-height:285px;border-radius:21px;background:linear-gradient(160deg,#141936,#070a18);padding:19px 14px}
+.phone-notch{width:60px;height:5px;border-radius:9px;background:#ffffff35;margin:0 auto 22px}
+.phone h3{font-size:16px;margin-bottom:13px}.phone-row{padding:10px 8px;border:1px solid #ffffff13;background:#ffffff06;border-radius:10px;margin-top:9px;font-size:10px;color:#d9dcf5}
+.step-list{display:grid;gap:13px}.step{display:grid;grid-template-columns:47px 1fr 20px;align-items:center;gap:15px;padding:17px;border-radius:17px;background:rgba(13,17,40,.7);border:1px solid #ffffff12;transition:transform .25s,border-color .25s}.step:hover{transform:translateX(5px);border-color:#8b5cf566}
+.step-num{width:43px;height:43px;display:grid;place-items:center;border-radius:50%;font-size:13px;font-weight:900;background:linear-gradient(135deg,#7c3aed,#2563eb);box-shadow:0 0 25px #7c3aed44}
+.step h3{font-size:13px}.step p{font-size:11px;color:var(--muted);margin-top:4px}.step-arrow{color:var(--cyan)}
+.benefit-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px}
+.benefit{padding:21px 17px;border-radius:17px;border:1px solid #ffffff13;background:linear-gradient(145deg,#10152fbb,#0a0d20bb);text-align:center;transition:transform .25s,border-color .25s}.benefit:hover{transform:translateY(-5px);border-color:#8b5cf566}
+.benefit-icon{width:43px;height:43px;margin:0 auto 13px;display:grid;place-items:center;border-radius:14px;background:linear-gradient(135deg,#7c3aed55,#06b6d455);font-size:21px}
+.benefit h3{font-size:12px}.benefit p{font-size:10px;color:var(--muted);margin-top:7px}
+.cta{position:relative;display:grid;grid-template-columns:1fr auto;align-items:center;gap:30px;overflow:hidden;padding:clamp(28px,5vw,52px);border:1px solid #b47aff6b;border-radius:27px;background:radial-gradient(ellipse at 10% 20%,#9d35ff7a,transparent 45%),radial-gradient(ellipse at 90% 80%,#0ea5e966,transparent 45%),linear-gradient(115deg,#171043,#101a3b);box-shadow:0 20px 75px #34166a33}
+.cta h2{font-size:clamp(28px,4vw,43px);line-height:1.12;letter-spacing:-1.6px;margin:13px 0}.cta p{font-size:12px;color:#d0d2e9;max-width:560px}.cta-action{min-width:205px;text-align:center}.cta-action .btn{width:100%}.verify{display:block;font-size:10px;color:#b7bad6;margin-top:13px}
+footer{border-top:1px solid #ffffff12;padding:28px 0 20px;margin-top:80px}.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}.footer-note{font-size:10px;color:#8589a8;margin-top:7px}.footer-links{display:flex;gap:18px;color:#b7bad6;font-size:11px}.social{display:flex;gap:8px}.social a{width:34px;height:34px;display:grid;place-items:center;border-radius:11px;background:#ffffff0c;border:1px solid #ffffff16}
+.copyright{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;border-top:1px solid #ffffff0d;margin-top:22px;padding-top:16px;font-size:10px;color:#8589a8}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}.reveal.in{opacity:1;transform:translateY(0)}.delay-1{transition-delay:.08s}.delay-2{transition-delay:.16s}.delay-3{transition-delay:.24s}
+@keyframes drift{to{transform:translate(15vw,12vh) rotate(30deg) scale(1.15)}}@keyframes gradient{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}@keyframes textShine{to{background-position:200% center}}@keyframes pulse{50%{opacity:.45;box-shadow:0 0 3px #4ade80}}@keyframes spin{to{transform:rotate(360deg)}}@keyframes levitate{0%,100%{translate:0 0}50%{translate:0 -11px}}
+@media(max-width:900px){.nav-links{display:none}.hero{grid-template-columns:1fr;gap:10px;padding-top:60px}.hero-copy{max-width:650px}.hero-art{min-height:410px}.steps-layout{grid-template-columns:.7fr 1.3fr;gap:25px}.benefit-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.cta{grid-template-columns:1fr}.cta-action{min-width:0;text-align:left}.cta-action .btn{width:auto}}
+@media(max-width:600px){.container{width:min(100% - 30px,1160px)}.nav-inner{height:68px}.brand{font-size:19px}.nav .btn{min-height:40px;padding:9px 12px;font-size:11px}.hero{padding-top:49px;padding-bottom:30px;min-height:auto}.eyebrow{font-size:9px}h1{font-size:clamp(42px,12vw,60px);letter-spacing:-2.7px}.hero-copy{font-size:13px;margin-top:18px}.hero-actions{display:grid;grid-template-columns:1fr;gap:10px;margin-top:23px}.btn{width:100%;min-height:49px}.check-row{gap:11px 15px;font-size:10px}.hero-art{min-height:350px;margin-top:3px}.ring{width:275px;height:275px}.paper-stack{width:min(300px,80%);padding:22px}.paper-stack h3{font-size:21px}.handwriting{font-size:21px}.chip-a{right:-2px;top:20px}.chip-b{left:-2px;bottom:25px}.float-chip{font-size:10px;padding:10px 12px}.stats{grid-template-columns:repeat(2,1fr);margin-bottom:48px}.stat{padding:18px 8px}.stat:nth-child(3):before{display:none}.stat:nth-child(n+3){border-top:1px solid #ffffff14}.stat strong{font-size:18px}.section{padding:48px 0 60px}.section-head{margin-bottom:26px}.section-head h2{letter-spacing:-1.2px}.project-grid{grid-template-columns:1fr;gap:13px}.project-card{padding:20px;border-radius:19px}.project-main{gap:12px}.project-card h3{font-size:14px}.reward{font-size:21px}.steps-layout{grid-template-columns:1fr;gap:10px}.steps-art{min-height:300px}.phone{width:190px}.phone-screen{min-height:255px}.step{grid-template-columns:39px 1fr 13px;gap:11px;padding:13px}.step-num{width:37px;height:37px}.step h3{font-size:12px}.step p{font-size:10px}.benefit-grid{gap:10px}.benefit{padding:17px 11px}.benefit h3{font-size:11px}.benefit p{font-size:10px}.cta{padding:26px 20px;border-radius:21px}.cta p{font-size:11px}.cta-action .btn{width:100%}.footer-inner{align-items:flex-start}.footer-links{width:100%;order:3;flex-wrap:wrap}.copyright{font-size:9px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="ambient"></div><div class="noise"></div>
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="#" aria-label="WriteNova home"><span class="brand-mark">✦</span><span>WriteNova</span></a>
+    <nav class="nav-links" aria-label="Main navigation"><a href="#projects">Projects</a><a href="#how">How it works</a><a href="#benefits">Benefits</a><a href="#apply">Contact</a></nav>
+    <a class="btn btn-telegram" href="https://t.me/+rpF6w-lTpgBhODRl" target="_blank" rel="noopener noreferrer">➤ Join Telegram <span>↗</span></a>
+  </div>
+</header>
+<main>
+<section class="container hero">
+  <div class="reveal">
+    <div class="eyebrow"><span class="live-dot"></span> Work-from-home opportunities</div>
+    <h1>Turn Your<br>Handwriting Into<br><span class="gradient-text">Real Opportunities.</span></h1>
+    <p class="hero-copy">Explore handwriting and book-writing projects from the comfort of your home. Check project details, requirements and terms before applying.</p>
+    <div class="hero-actions"><a class="btn btn-primary" href="https://t.me/+rpF6w-lTpgBhODRl" target="_blank" rel="noopener noreferrer">➤ Join Telegram <span>→</span></a><a class="btn btn-quiet" href="#projects">Explore Projects <span>↘</span></a></div>
+    <div class="check-row"><span><b>◷</b> Flexible hours</span><span><b>▣</b> Project-based</span><span><b>⌂</b> Work from home</span></div>
+  </div>
+  <div class="hero-art reveal delay-2" aria-label="Decorative handwriting project preview">
+    <div class="art-glow"></div><div class="ring"></div>
+    <div class="float-chip chip-a">✦ Write · Earn · Grow</div>
+    <div class="paper-stack"><div class="paper-head"><div><div class="tiny">YOUR NEXT PROJECT</div><h3>Write your<br>next chapter.</h3></div><div class="paper-icon">✍</div></div><div class="handwriting">Good handwriting<br>creates big<br>opportunities.</div><div class="paper-lines"><i></i><i></i><i></i></div></div>
+    <div class="float-chip chip-b">✎ Handwriting projects</div>
+  </div>
+</section>
+<div class="container"><div class="stats reveal">
+  <div class="stat"><div class="stat-icon">▤</div><strong>04</strong><span>Example project cards</span></div>
+  <div class="stat"><div class="stat-icon">◷</div><strong>Flexible</strong><span>Project duration</span></div>
+  <div class="stat"><div class="stat-icon">◎</div><strong>Online</strong><span>Application access</span></div>
+  <div class="stat"><div class="stat-icon">✦</div><strong>Verify first</strong><span>Check terms carefully</span></div>
+</div></div>
+<section class="section" id="projects"><div class="container">
+  <div class="section-head reveal"><div class="eyebrow">✦ Our projects</div><h2>Explore <span class="gradient-text">Writing Projects</span></h2><p>Example project cards inspired by your reference. Confirm current availability, rewards and deadlines directly with the provider.</p></div>
+  <div class="project-grid">
+    <article class="project-card reveal" style="--accent:#a855f7"><div class="card-top"><span class="project-id">✦ PROJECT 01</span><span class="level">Beginner level</span></div><div class="project-main"><div class="project-icon">✍</div><div><h3>Starter Writing Project</h3><div class="reward">₹13,500*</div><p>Illustrative reward, not guaranteed.</p></div></div><div class="project-meta"><span>▤ 50 book pages</span><span>◷ 7 days</span></div><a class="card-btn" href="#apply">View application details <span>→</span></a></article>
+    <article class="project-card reveal delay-1" style="--accent:#08b9f4"><div class="card-top"><span class="project-id">✦ PROJECT 02</span><span class="level">Intermediate</span></div><div class="project-main"><div class="project-icon">▤</div><div><h3>Extended Writing Project</h3><div class="reward">₹19,000*</div><p>Illustrative reward, subject to verification.</p></div></div><div class="project-meta"><span>▤ 90 book pages</span><span>◷ 10 days</span></div><a class="card-btn" href="#apply">View application details <span>→</span></a></article>
+    <article class="project-card reveal" style="--accent:#f02caf"><div class="card-top"><span class="project-id">✦ PROJECT 03</span><span class="level">Extended</span></div><div class="project-main"><div class="project-icon">▧</div><div><h3>Advanced Writing Project</h3><div class="reward">₹22,000*</div><p>Illustrative reward, subject to verification.</p></div></div><div class="project-meta"><span>▤ 120 book pages</span><span>◷ 15 days</span></div><a class="card-btn" href="#apply">View application details <span>→</span></a></article>
+    <article class="project-card reveal delay-1" style="--accent:#08d5b6"><div class="card-top"><span class="project-id">✦ PROJECT 04</span><span class="level">Long-term</span></div><div class="project-main"><div class="project-icon">◇</div><div><h3>Professional Writing Project</h3><div class="reward">₹28,000*</div><p>Illustrative reward, subject to verification.</p></div></div><div class="project-meta"><span>▤ 190 book pages</span><span>◷ 26 days</span></div><a class="card-btn" href="#apply">View application details <span>→</span></a></article>
+  </div>
+  <p class="note">*These figures are sample content based on the earlier draft, not verified offers or guaranteed earnings. Replace them with confirmed terms before publishing.</p>
+</div></section>
+<section class="section" id="how"><div class="container steps-layout">
+  <div class="steps-art reveal"><div class="steps-orb"></div><div class="phone"><div class="phone-screen"><div class="phone-notch"></div><div class="tiny">WRITENOVA / GUIDE</div><h3>Small steps.<br><span class="gradient-text">Big dreams.</span></h3><div class="phone-row">✓ Review project details</div><div class="phone-row">✓ Understand the rules</div><div class="phone-row">✓ Verify provider terms</div><div class="phone-row">↗ Apply when confident</div></div></div></div>
+  <div><div class="section-head" style="text-align:left;margin:0 0 23px"><div class="eyebrow">✦ How it works</div><h2>Simple Steps to <span class="gradient-text">Get Started</span></h2><p>Understand the process and verify the terms before committing.</p></div>
+    <div class="step-list">
+      <div class="step reveal"><div class="step-num">01</div><div><h3>Review the project</h3><p>Check page count, deadlines, handwriting standards, payment terms and conditions.</p></div><span class="step-arrow">›</span></div>
+      <div class="step reveal delay-1"><div class="step-num" style="background:linear-gradient(135deg,#0891b2,#2563eb)">02</div><div><h3>Understand the rules</h3><p>Confirm the writing style, materials, submission method and correction policy.</p></div><span class="step-arrow">›</span></div>
+      <div class="step reveal delay-2"><div class="step-num" style="background:linear-gradient(135deg,#059669,#06b6d4)">03</div><div><h3>Verify the provider</h3><p>Confirm company identity, written agreement, payment policy and any courier costs.</p></div><span class="step-arrow">›</span></div>
+    </div>
+  </div>
+</div></section>
+<section class="section" id="benefits"><div class="container">
+  <div class="section-head reveal"><div class="eyebrow">✦ Why choose this format</div><h2>Your Time. Your Skills. <span class="gradient-text">Your Goals.</span></h2><p>A clean way to browse opportunities and make informed decisions.</p></div>
+  <div class="benefit-grid">
+    <div class="benefit reveal"><div class="benefit-icon">▦</div><h3>Flexible schedule</h3><p>Review project timelines and choose what suits your availability.</p></div>
+    <div class="benefit reveal delay-1"><div class="benefit-icon">↗</div><h3>Skill development</h3><p>Practice consistency, legibility and attention to detail.</p></div>
+    <div class="benefit reveal delay-2"><div class="benefit-icon">⛨</div><h3>Verified process</h3><p>Check written guidelines and transparent terms before joining.</p></div>
+    <div class="benefit reveal delay-3"><div class="benefit-icon">➤</div><h3>Easy access</h3><p>Use the Telegram link to review project information.</p></div>
+  </div>
+</div></section>
+<section class="section" id="apply"><div class="container"><div class="cta reveal"><div><div class="eyebrow">✦ Start your journey</div><h2>Ready to <span class="gradient-text">Explore?</span></h2><p>Open Telegram to review the available information. Verify the opportunity independently before sharing personal details, paying fees or agreeing to any terms.</p></div><div class="cta-action"><a class="btn btn-telegram" href="https://t.me/+rpF6w-lTpgBhODRl" target="_blank" rel="noopener noreferrer">➤ Join Telegram now <span>→</span></a><span class="verify">◈ Always verify the provider first.</span></div></div></div></section>
+</main>
+<footer><div class="container"><div class="footer-inner"><div><a class="brand" href="#"><span class="brand-mark">✦</span><span>WriteNova</span></a><p class="footer-note">Write today. Build tomorrow.</p></div><div class="footer-links"><a href="#projects">Projects</a><a href="#how">How it works</a><a href="#benefits">Benefits</a><a href="#apply">Apply</a></div><div class="social"><a href="https://t.me/+rpF6w-lTpgBhODRl" aria-label="Telegram" target="_blank" rel="noopener noreferrer">➤</a></div></div><div class="copyright"><span>© <span id="year"></span> WriteNova. All rights reserved.</span><span>Designed for a better tomorrow ✦</span></div></div></footer>
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+const items = document.querySelectorAll('.reveal');
+if ('IntersectionObserver' in window) {
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        io.unobserve(entry.target);
+      }
+    });
+  }, {threshold: 0.12});
+  items.forEach((el) => io.observe(el));
+} else {
+  items.forEach((el) => el.classList.add('in'));
+}
+</script>
+</body>
+</html>
